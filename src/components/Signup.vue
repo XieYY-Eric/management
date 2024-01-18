@@ -17,7 +17,7 @@ export default{
             //fetch user information
             try{
                 if(this.formData.password != this.confirmPassword){
-                  alert("Password doesn't match");
+                  alert("密码不匹配");
                   return;
                 }
                 const portNum=8081;
@@ -32,8 +32,7 @@ export default{
                   alert(result.data.message);
                 }
             }catch(e){
-                console.log(e);
-                alert(e);
+                alert("无法注册，检查服务器");
             }
             
         }
@@ -43,7 +42,7 @@ export default{
 
 <template>
     <div class="container">
-      <h1>Sign Up</h1>
+      <h1>SignUp</h1>
       <div class="Register">
           <input type="text" v-model="formData.username" placeholder="Enter UserName" />
           <input type="text" v-model="formData.name" placeholder="Enter Name" />
@@ -56,19 +55,7 @@ export default{
 </template>
 
 
-<style>
-.Register{
-    background-color: #355170;
-    display: flex;
-    flex-direction: column;
-    row-gap: 20px;
-    padding: 40px;
-    border: solid 1px black;
-    width: fit-content;
-    align-items: center;
-    margin-left: auto;
-    margin-right: auto;
-}
+<style scoped>
 .container H1{
     display: flex;
     justify-content: space-around;

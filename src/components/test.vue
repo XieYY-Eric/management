@@ -56,19 +56,7 @@ export default{
 </template>
 
 
-<style>
-.Register{
-    background-color: #355170;
-    display: flex;
-    flex-direction: column;
-    row-gap: 20px;
-    padding: 40px;
-    border: solid 1px black;
-    width: fit-content;
-    align-items: center;
-    margin-left: auto;
-    margin-right: auto;
-}
+<style scoped>
 .container H1{
     display: flex;
     justify-content: space-around;

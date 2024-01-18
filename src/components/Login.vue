@@ -12,7 +12,6 @@ export default{
     },
     methods:{
         async login(){
-            console.log("username: ", this.formData.username, "password: ", this.formData.password);
             let portNum = 8081;
             //fetch user information
             let link = `http://127.0.0.1:${portNum}/login`;
@@ -24,12 +23,10 @@ export default{
                     localStorage.setItem("user-info",JSON.stringify( {...this.formData, "jwt_token":result.data.data}));
                     this.$router.push({ name: 'HomePage' });
                 }else{
-                    console.log(result.data.message)
                     alert(result.data.message)
                 }
             }catch(error){
-                console.log(error.response); // this is the main part. Use the response property from the error object
-                alert(error)
+                alert("无法登陆，检查后端服务器")
             }
             
             
@@ -58,7 +55,7 @@ export default{
 <template>
     <!-- <img src="../assets/logo.svg" class="logo" /> -->
     <div class="container">
-        <h1>Login Page</h1>
+        <h1>Login</h1>
         <div class="Register">
             <input type="text" v-model="formData.username" placeholder="Enter Username" />
             <input type="password" v-model="formData.password" placeholder="Enter Password" />
@@ -71,18 +68,6 @@ export default{
 
 
 <style scoped>
-.Register{
-    background-color: #355170;
-    display: flex;
-    flex-direction: column;
-    row-gap: 20px;
-    padding: 40px;
-    border: solid 1px black;
-    width: fit-content;
-    align-items: center;
-    margin-left: auto;
-    margin-right: auto;
-}
 .container H1{
     display: flex;
     justify-content: space-around;

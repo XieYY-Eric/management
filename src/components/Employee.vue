@@ -16,7 +16,8 @@
             <input type="text" placeholder="输入入职时间(yyyy-mm-dd)" v-model="formData.enrollDateEnd">
             <button>submit</button>
         </form>
-        <table class="tablestyle">
+        <div style="overflow-x:auto;">
+            <table class="tablestyle">
             <th>Name</th>
             <th>Gender</th>
             <th>Image</th>
@@ -34,6 +35,8 @@
                 <td><button @click="UpdateHandler(emp)" style="margin-left: 10px;">Update</button><button @click="deleteHandler(emp.id)" style="margin-left: 10px;">Delete</button></td>
             </tr>
         </table>
+        </div>
+        
         <ConfirmWindow
         v-if="showConfirmWindow"
         :onConfirm="handleDeleteConfirm"
@@ -305,7 +308,8 @@ export default {
     width: 30px;
 }
 img{
-    width: 70px;
+    width: 50px;
+    height: 50px;
 }
 
 .arrows{
